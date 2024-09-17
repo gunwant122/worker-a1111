@@ -16,7 +16,7 @@ RUN . /clone.sh BLIP https://github.com/salesforce/BLIP.git 48211a1594f1321b00f1
     . /clone.sh stable-diffusion-webui-assets https://github.com/AUTOMATIC1111/stable-diffusion-webui-assets 6f7db241d2f8ba7457bac5ca9753331f0c266917
 
 RUN apk add --no-cache wget && \
-    wget -q -O /model.safetensors https://civitai.com/models/277058/epicrealism-xl
+    wget -q -O /model.safetensors "https://civitai.com/api/download/models/646523?type=Model&format=SafeTensor&size=pruned&fp=fp16"
 
 
 
@@ -59,6 +59,13 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     git+https://github.com/TencentARC/GFPGAN.git@8d2447a2d918f8eba5a4a01463fd48e45126a379 \
     git+https://github.com/openai/CLIP.git@d50d76daa670286dd6cacf3bcd80b5e4823fc8e1 \
     git+https://github.com/mlfoundations/open_clip.git@v2.20.0
+
+# Add ControlNet extension
+# RUN git clone https://github.com/Mikubill/sd-webui-controlnet ${ROOT}/extensions/sd-webui-controlnet \
+#     && (cd ${ROOT}/extensions/sd-webui-controlnet && git checkout 274dd5df217a03e059e9cf052447aece81bbd1cf) \
+#     && mkdir -p ${ROOT}/models/ControlNet
+
+
 
 # Install Python dependencies (Worker Template)
 COPY builder/requirements.txt /requirements.txt
