@@ -16,7 +16,7 @@ RUN . /clone.sh BLIP https://github.com/salesforce/BLIP.git 48211a1594f1321b00f1
     . /clone.sh stable-diffusion-webui-assets https://github.com/AUTOMATIC1111/stable-diffusion-webui-assets 6f7db241d2f8ba7457bac5ca9753331f0c266917
 
 RUN apk add --no-cache wget && \
-    wget -q -O /model.safetensors "https://civitai.com/api/download/models/646523?type=Model&format=SafeTensor&size=pruned&fp=fp16"
+    wget -q -O /model.safetensors https://civitai.com/api/download/models/646523
 
 
 

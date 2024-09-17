@@ -47,6 +47,13 @@ def run_img2img_inference(inference_request):
                                       json=inference_request, timeout=600)
     return response.json()
 
+def run_extra_inference(inference_request):
+    '''
+    Run inference on a request.
+    '''
+    response = automatic_session.post(url=f'{LOCAL_URL}/extra-single-image',
+                                      json=inference_request, timeout=600)
+    return response.json()
 # ---------------------------------------------------------------------------- #
 #                                RunPod Handler                                #
 # ---------------------------------------------------------------------------- #
